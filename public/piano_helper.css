@@ -1,0 +1,19 @@
+#main_header {
+    font-size:xx-large;
+    background-color:lightgray;
+    margin:0.2 rem;
+}
+
+h2 {
+    background-color:rgb(105, 193, 184);
+    margin:0.2 rem;
+}
+
+pre {
+    background-color: lightgray;
+    font-size: xx-small;
+}
+
+li {
+    font-size: xx-small;
+}

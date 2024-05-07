@@ -1,0 +1,17 @@
+{
+    "name": "Piano Cookie viewer",
+    "description": "Base Level Extension",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "default.html",
+        "default_icon": "hello_extensions.png"
+    },
+    "host_permissions": [
+        "*://*/*"
+      ],
+    "permissions": [
+        "cookies",
+        "scripting"
+    ]
+}

@@ -2,13 +2,8 @@
 (async function initPopupWindow() {
 	const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-	const cookieList = document.getElementById("cookie-list");
-
 	if (tab?.url) {
 		try {
-			const domain = new URL(tab.url).host.replace("www", "");
-			//const cookieListData = await chrome.cookies.getAll({ domain });
-			//fillCookieList(cookieListData, cookieList);
 			const url = tab.url;
 			
             const tacCookie = await chrome.cookies.get({ name: "__tac", url });
@@ -30,8 +25,10 @@
 
 function displayAID(aid: string) {
 	const aidDiv = document.getElementById("aid");
-	console.log(aid);
-	aidDiv!.textContent = aid;
+
+	if (aidDiv) {
+		aidDiv.textContent = aid;
+	}
 }
 
 function displayTAC(tacData: {}) {
@@ -40,7 +37,9 @@ function displayTAC(tacData: {}) {
 	
 	pre.textContent = JSON.stringify(tacData, null, 2);
 
-	tacDiv!.appendChild(pre);
+	if (tacDiv) {
+		tacDiv.appendChild(pre);
+	}
 }
 
 function displayUTP(utpData: {}) {
@@ -48,22 +47,11 @@ function displayUTP(utpData: {}) {
 	const pre = document.createElement("pre");
 	pre.textContent = JSON.stringify(utpData, null, 2);
 
-	utpDiv!.appendChild(pre);
-}
-
-/*function fillCookieList(cookies, ulElement) {
-	if (cookies && cookies.length > 0) {
-		cookies.map((c) => {
-			const li = document.createElement("li");
-			li.appendChild(document.createTextNode(JSON.stringify(c)));
-			ulElement.appendChild(li);
-		});
-	} else {
-		const li = document.createElement("li");
-		li.appendChild(document.createTextNode("No usable cookies."));
-		ulElement.appendChild(li);
+	if(utpDiv) {
+		utpDiv.appendChild(pre);
 	}
-}*/
+
+}
 
 function processUTP(utpCookie: chrome.cookies.Cookie) {
     const utpData = decodeJWT(utpCookie.value);

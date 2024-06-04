@@ -6,7 +6,8 @@
   "scripts": {
     "test": "tsc --noEmit && vitest",
     "build": "tsc --noEmit && vite build",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "Andreas Neumann",
@@ -17,5 +18,8 @@
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
     "vitest": "^1.6.0"
+  },
+  "dependencies": {
+    "husky": "^9.0.11"
   }
 }

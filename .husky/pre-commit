@@ -1,0 +1,6 @@
+if ! command -v gitleaks &> /dev/null
+then
+    echo "gitleaks could not be found. Please install it: https://github.com/gitleaks/gitleaks"
+    exit 1
+fi
+gitleaks protect --verbose --redact --staged

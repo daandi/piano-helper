@@ -1,6 +1,6 @@
 // vite.config.js
 import { resolve } from "path";
-import { defineConfig, configDefaults } from "vite";
+import { defineConfig } from "vite";
 
 export default defineConfig({
 	build: {
@@ -12,7 +12,6 @@ export default defineConfig({
 			fileName: "piano_helper",
 		},
 		test: {
-			globalSetup: [".vite_testsetup.ts"],
 			include: ["**/*.{integration,spec}.?(c|m)[jt]s?(x)"],
 		},
 	},

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tsc --noEmit && vitest",
+    "test": "tsc --noEmit && TZ=UTC vitest",
     "build": "tsc --noEmit && vite build",
-    "coverage": "vitest run --coverage",
+    "coverage": " TZ=UTC vitest run --coverage",
     "prepare": "husky"
   },
   "keywords": [],
